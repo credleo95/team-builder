@@ -3,11 +3,11 @@ import { React, useState }  from 'react';
 import Forms from './Components/Forms'; 
 import TeamMember from './Components/Team-Members';
 
-const initialForm={
+const initialForm=[{
   name:"",
   email:"",
   role:""
-}
+}]
 
 function App() {
 const [teamMember, setTeamMember] = useState([])
@@ -26,9 +26,10 @@ const update = (name, value) => {
        <h1>Team Builder</h1>
       <h3>Submit your info below</h3>
       <Forms update={update}  submit={submit} form={form}/> 
+      
       { teamMember.map(member => {
         return (
-          <TeamMember key={member.id} stats={teamMember} />
+          <TeamMember key={member.id} stats={member} />
         )
       })
       }
